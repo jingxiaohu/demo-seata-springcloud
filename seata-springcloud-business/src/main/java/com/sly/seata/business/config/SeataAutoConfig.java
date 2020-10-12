@@ -21,8 +21,8 @@ public class SeataAutoConfig {
 	 * @author sly
 	 * @time 2019年6月11日
 	 */
-	@Bean
+	/*@Bean
 	public GlobalTransactionScanner globalTransactionScanner() {
 		return new GlobalTransactionScanner("seata-springcloud-business", "my_test_tx_group");
-	}
+	}*/
 }

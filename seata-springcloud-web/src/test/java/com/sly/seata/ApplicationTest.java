@@ -11,6 +11,7 @@ public class ApplicationTest {
 
 	@Test
 	public void contextLoads() {
+		//http://localhost:8080/business/purchase
 	}
 
 }

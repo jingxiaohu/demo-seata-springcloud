@@ -11,9 +11,18 @@ spring:
 #========================================MySQL config=====================================
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/fescardubbo?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/fescardubbo1?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowMultiQueries=true
     username: root
-    password: 123456
+    password: root
+
+  cloud:
+    alibaba:
+      seata:
+        txServiceGroup: my_test_tx_group
+logging:
+   level:
+      io:
+        seata: info
 #========================================mybatis config=====================================
 mybatis:
   type-aliases-package: com.sly.seata.common.model
@@ -22,4 +31,4 @@ mybatis:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://@localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/

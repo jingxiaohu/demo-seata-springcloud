@@ -1,17 +1,5 @@
 package com.sly.seata.business.service.impl;
 
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.sly.seata.account.service.AccountService;
 import com.sly.seata.business.service.BusinessService;
 import com.sly.seata.common.model.account.Account;
@@ -21,9 +9,19 @@ import com.sly.seata.common.utils.CommonUtils;
 import com.sly.seata.common.utils.DateUtils;
 import com.sly.seata.order.service.OrderService;
 import com.sly.seata.storage.service.StorageService;
-
 import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 业务service实现
@@ -82,7 +80,8 @@ public class BusinessServiceImpl implements BusinessService {
 			account.setRemark("备注");
 			
 			System.out.println("xid" + RootContext.getXID());
-			
+
+
 			Map<String, Object> insert = storageService.insert(storage);
 			if((int)insert.get("status") != 200) {
 				throw new RuntimeException((String)insert.get("message"));
@@ -95,6 +94,14 @@ public class BusinessServiceImpl implements BusinessService {
 			if((int)insert3.get("status") != 200) {
 				throw new RuntimeException((String)insert3.get("message"));
 			}
+			/*else{
+				if("3".equalsIgnoreCase(storageId)){
+					System.out.println("事务回滚..............................................");
+					throw new RuntimeException("事务回滚 新增失败");
+				}
+
+			}*/
+
 
 			Map<String, Object> result = new HashMap<>(16);
 			result.put("status", 200);

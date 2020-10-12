@@ -8,6 +8,14 @@ spring:
   devtools:
     restart:
       enabled: false
+  cloud:
+    alibaba:
+      seata:
+        txServiceGroup: my_test_tx_group
+logging:
+  level:
+    io:
+      seata: info
 #========================================feign config=====================================
 feign:
   hystrix:
@@ -27,3 +35,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://@localhost:8761/eureka/
+
+
+

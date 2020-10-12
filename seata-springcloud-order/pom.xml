@@ -60,9 +60,20 @@
 		<dependency>
             <groupId>io.seata</groupId>
             <artifactId>seata-all</artifactId>
-            <version>0.6.1</version>
         </dependency>
-		
+		<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-seata -->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-alibaba-seata</artifactId>
+			<!--<version>2.1.1.RELEASE</version>-->
+		</dependency>
+		<!--<dependency>
+			<groupId>io.seata</groupId>
+			<artifactId>seata-spring-boot-starter</artifactId>
+			<version>1.2.0</version>
+		</dependency>-->
+
+
 		<!-- 测试开发相关 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

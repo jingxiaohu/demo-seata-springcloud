@@ -3,6 +3,7 @@ package com.sly.seata.account.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +33,7 @@ public class AccountServiceImpl implements AccountService {
 	 * @author sly
 	 * @time 2019年6月12日
 	 */
+//	@GlobalTransactional
 	@Override
 	public Map<String, Object> insert(Account account) {
 		System.out.println(RootContext.getXID());

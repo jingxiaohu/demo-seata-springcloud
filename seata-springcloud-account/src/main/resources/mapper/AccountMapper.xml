@@ -3,7 +3,7 @@
 <mapper namespace="com.sly.seata.account.mapper.AccountMapper">
 	<!-- 新增 -->
 	<insert id="insert" parameterType="Account">
-		INSERT INTO `BUSINESS_ACCOUNT`(accountId,amount,accountName,logicDel,remark)
+		INSERT INTO `business_account`(accountId,amount,accountName,logicDel,remark)
 		VALUES(#{accountId},#{amount},#{accountName},#{logicDel},#{remark})
 	</insert>
 </mapper>

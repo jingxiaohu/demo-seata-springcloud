@@ -53,13 +53,19 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- seata -->
 		<dependency>
-            <groupId>io.seata</groupId>
-            <artifactId>seata-all</artifactId>
-            <version>0.6.1</version>
-        </dependency>
+			<groupId>io.seata</groupId>
+			<artifactId>seata-all</artifactId>
+			<!--<version>0.6.1</version>-->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-seata -->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-alibaba-seata</artifactId>
+			<!--<version>2.1.1.RELEASE</version>-->
+		</dependency>
 		
 		<!-- 测试开发相关 -->
 		<dependency>
