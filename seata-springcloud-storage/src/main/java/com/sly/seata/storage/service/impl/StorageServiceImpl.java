@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +23,9 @@ import io.seata.core.context.RootContext;
 @RestController
 public class StorageServiceImpl implements StorageService {
 
+
 	@Autowired
-	private StorageMapper storageMapper;
+	JdbcTemplate jdbcTemplate;
 
 	/**
 	 * 新增
@@ -37,12 +39,20 @@ public class StorageServiceImpl implements StorageService {
 	public Map<String, Object> insert(@RequestBody Storage storage) {
 		System.out.println(RootContext.getXID());
 		//int a = 10/0;
-		storageMapper.insert(storage);
+		insertT( storage);
 		
 		
 		Map<String, Object> result = new HashMap<>(16);
 		result.put("status", 200);
 		result.put("message", "新增成功！");
 		return result;
+	}
+
+	public void  insertT(Storage storage){
+		/*String sql = "INSERT INTO `BUSINESS_STORAGE`(storageId,storageName,storageCount,logicDel,remark)" +
+				" VALUES(#{storageId},#{storageName},#{storageCount},#{logicDel},#{remark})";*/
+		String sql = "INSERT INTO `BUSINESS_STORAGE`(storageId,storageName,storageCount,logicDel,remark) VALUES(?,?,?,?,?)";
+		jdbcTemplate.update(sql,storage.getStorageId(),storage.getStorageName(),storage.getStorageCount(),storage.getLogicDel()
+				,storage.getRemark());
 	}
 }

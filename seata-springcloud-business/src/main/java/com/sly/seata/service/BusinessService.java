@@ -1,4 +1,4 @@
-package com.sly.seata.business.service;
+package com.sly.seata.service;
 
 import java.util.Map;
 
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sly.seata.business.service.hystrix.BusinessServiceHystrixImpl;
+//import com.sly.seata.service.hystrix.BusinessServiceHystrixImpl;
 
 /**
  * Business feign客户端
@@ -15,7 +15,6 @@ import com.sly.seata.business.service.hystrix.BusinessServiceHystrixImpl;
  * @author sly
  * @time 2019年6月12日
  */
-@FeignClient(name = "seata-springcloud-business", fallback = BusinessServiceHystrixImpl.class)
 public interface BusinessService {
 
 	/**
@@ -28,8 +27,6 @@ public interface BusinessService {
 	 * @author sly
 	 * @time 2019年6月12日
 	 */
-	@RequestMapping(value = "/business/purchase", method = RequestMethod.POST)
-	Map<String, Object> purchase(@RequestParam("accountId") String accountId, @RequestParam("orderId") String orderId,
-			@RequestParam("storageId") String storageId);
+	Map<String, Object> purchase( String accountId,  String orderId, String storageId);
 
 }

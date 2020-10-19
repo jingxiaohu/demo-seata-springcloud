@@ -22,13 +22,9 @@
 		<module>seata-springcloud/</module>
 		<module>seata-springcloud-eureka</module>
 		<module>seata-springcloud-account</module>
-		<module>seata-springcloud-account-api</module>
 		<module>seata-springcloud-business</module>
-		<module>seata-springcloud-business-api</module>
 		<module>seata-springcloud-order</module>
-		<module>seata-springcloud-order-api</module>
 		<module>seata-springcloud-storage</module>
-		<module>seata-springcloud-storage-api</module>
 		<module>seata-springcloud-common</module>
 		<module>seata-springcloud-web</module>
 	</modules>

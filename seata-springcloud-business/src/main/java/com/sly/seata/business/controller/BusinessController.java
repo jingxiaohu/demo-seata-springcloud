@@ -1,16 +1,15 @@
-package com.sly.seata.controller;
+package com.sly.seata.business.controller;
 
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.sly.seata.service.BusinessService;
 
-import com.sly.seata.business.service.BusinessService;
 
 /**
  * 业务controller
@@ -22,7 +21,7 @@ import com.sly.seata.business.service.BusinessService;
 @RequestMapping("/business")
 public class BusinessController {
 	@Autowired
-	private BusinessService businessService;
+	private BusinessService businessServiceImpl;
 
 	/**
 	 * 购买
@@ -39,7 +38,7 @@ public class BusinessController {
 		String accountId = "1";
 		String orderId = "2";
 		String storageId = "3";
-		Map<String, Object> result = businessService.purchase(accountId, orderId, storageId);
+		Map<String, Object> result = businessServiceImpl.purchase(accountId, orderId, storageId);
 		return result;
 	}
 }

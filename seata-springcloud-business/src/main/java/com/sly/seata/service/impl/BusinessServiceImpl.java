@@ -1,22 +1,24 @@
-package com.sly.seata.business.service.impl;
+package com.sly.seata.service.impl;
 
-import com.sly.seata.account.service.AccountService;
-import com.sly.seata.business.service.BusinessService;
 import com.sly.seata.common.model.account.Account;
 import com.sly.seata.common.model.order.Order;
 import com.sly.seata.common.model.storage.Storage;
 import com.sly.seata.common.utils.CommonUtils;
 import com.sly.seata.common.utils.DateUtils;
-import com.sly.seata.order.service.OrderService;
-import com.sly.seata.storage.service.StorageService;
 import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.sly.seata.service.AccountService;
+import com.sly.seata.service.BusinessService;
+import com.sly.seata.service.OrderService;
+import com.sly.seata.service.StorageService;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -29,7 +31,7 @@ import java.util.Map;
  * @author sly
  * @time 2019年6月12日
  */
-@RestController
+@Service
 public class BusinessServiceImpl implements BusinessService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BusinessService.class);
 
@@ -60,20 +62,20 @@ public class BusinessServiceImpl implements BusinessService {
 			System.out.println("storageId" + storageId);
 
 			Storage storage = new Storage();
-			storage.setStorageId(CommonUtils.genUUID());
+			storage.setStorageId(CommonUtils.genUUID()+ RandomStringUtils.random(6,true,true));
 			storage.setStorageName("name");
 			storage.setStorageCount(20);
 			storage.setRemark("备注");
 			storage.setLogicDel("N");
 			Order order = new Order();
-			order.setOrderId(CommonUtils.genUUID());
-			order.setOrderNo("NO" + System.currentTimeMillis());
+			order.setOrderId(CommonUtils.genUUID()+RandomStringUtils.random(6,true,true));
+			order.setOrderNo("NO" + System.currentTimeMillis()+RandomStringUtils.random(6,true,true));
 			order.setOrderDetail("详情");
 			order.setCreateTime(DateUtils.formateTime(new Date()));
 			order.setRemark("备注");
 			order.setLogicDel("N");
 			Account account = new Account();
-			account.setAccountId(CommonUtils.genUUID());
+			account.setAccountId(CommonUtils.genUUID()+RandomStringUtils.random(6,true,true));
 			account.setAccountName("name");
 			account.setAmount(new BigDecimal("100.5"));
 			account.setLogicDel("N");

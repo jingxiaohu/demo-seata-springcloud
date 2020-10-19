@@ -12,28 +12,17 @@
 	<artifactId>seata-springcloud-business</artifactId>
 
 	<dependencies>
-		<!-- api工程依赖 -->
+
+		<!-- web相关 -->
 		<dependency>
-			<groupId>com.sly</groupId>
-			<artifactId>seata-springcloud-account-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.sly</groupId>
-			<artifactId>seata-springcloud-order-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.sly</groupId>
-			<artifactId>seata-springcloud-storage-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sly</groupId>
-			<artifactId>seata-springcloud-business-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	
+
 		<!-- 服务调用相关 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -58,7 +47,7 @@
 		<dependency>
 			<groupId>io.seata</groupId>
 			<artifactId>seata-all</artifactId>
-			<!--<version>0.6.1</version>-->
+			<version>1.2.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-seata -->
 		<dependency>
@@ -83,6 +72,15 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
         </dependency>
+
+
+
+		<dependency>
+			<groupId>com.sly</groupId>
+			<artifactId>seata-springcloud-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
     </dependencies>
 
 	<build>

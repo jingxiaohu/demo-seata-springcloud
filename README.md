@@ -346,7 +346,7 @@ public class ThreadLocalContextCore implements ContextCore {
 > [为什么要修改](https://github.com/seata/seata/issues/883)
 
 # 使用
-> 首先你需要启动seata-service  
+> 首先你需要启动seata-com.sly.seata.service  
 > [下载地址](https://github.com/seata/seata/releases)  
 > 如果使用熔断记得手动抛出异常，不然seata就会认为你是操作成功了。feign调用我觉得坑爹之处就在这，我其实不是很喜欢feign。但是公司要用也没办法。
 
@@ -363,15 +363,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sly.seata.account.service.AccountService;
-import com.sly.seata.business.service.BusinessService;
+import com.sly.seata.account.com.sly.seata.service.AccountService;
+import com.sly.seata.service.BusinessService;
 import com.sly.seata.common.model.account.Account;
 import com.sly.seata.common.model.order.Order;
 import com.sly.seata.common.model.storage.Storage;
 import com.sly.seata.common.utils.CommonUtils;
 import com.sly.seata.common.utils.DateUtils;
-import com.sly.seata.order.service.OrderService;
-import com.sly.seata.storage.service.StorageService;
+import com.sly.seata.order.com.sly.seata.service.OrderService;
+import com.sly.seata.storage.com.sly.seata.service.StorageService;
 
 import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
