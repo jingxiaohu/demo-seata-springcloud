@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.sly.seata.account.service.AccountService;
 import com.sly.seata.common.model.account.Account;
 
 /**
@@ -15,7 +14,7 @@ import com.sly.seata.common.model.account.Account;
  * @time 2019年6月12日
  */
 @Component
-public class AccountServiceHystrixImpl implements AccountService {
+public class AccountServiceHystrixImpl   {
 
 	/**
 	 * 新增失败熔断返回
@@ -25,7 +24,6 @@ public class AccountServiceHystrixImpl implements AccountService {
 	 * @author sly
 	 * @time 2019年6月12日
 	 */
-	@Override
 	public Map<String, Object> insert(Account account) {
 		Map<String, Object> result = new HashMap<>(16);
 		result.put("status", 400);

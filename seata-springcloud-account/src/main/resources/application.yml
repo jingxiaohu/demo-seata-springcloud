@@ -10,11 +10,8 @@ spring:
       enabled: false
 #========================================MySQL config=====================================
   datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/fescardubbo3?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowMultiQueries=true
-#    username: root
-#    password: root
-    url: jdbc:mysql://192.168.1.150:3306/fescardubbo3?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fescardubbo3?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowMultiQueries=true
     username: root
     password: root
 
@@ -26,10 +23,6 @@ logging:
   level:
     io:
       seata: info
-#========================================mybatis config=====================================
-mybatis:
-  type-aliases-package: com.sly.seata.common.model
-  mapper-locations: classpath:mapper/*.xml
 #========================================eureka config=====================================
 eureka:
   client:
