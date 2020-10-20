@@ -15,7 +15,7 @@ import com.sly.seata.order.service.OrderService;
  * @time 2019年6月12日
  */
 @Component
-public class OrderServiceHystrixImpl implements OrderService {
+public class OrderServiceHystrixImpl  {
 
 	/**
 	 * 新增失败熔断返回
@@ -25,7 +25,6 @@ public class OrderServiceHystrixImpl implements OrderService {
 	 * @author sly
 	 * @time 2019年6月12日
 	 */
-	@Override
 	public Map<String, Object> insert(Order order) {
 		Map<String, Object> result = new HashMap<>(16);
 		result.put("status", 400);

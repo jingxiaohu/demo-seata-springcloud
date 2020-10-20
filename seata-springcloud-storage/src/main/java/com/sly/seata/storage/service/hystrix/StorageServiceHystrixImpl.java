@@ -1,12 +1,10 @@
 package com.sly.seata.storage.service.hystrix;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.sly.seata.common.model.storage.Storage;
 import org.springframework.stereotype.Component;
 
-import com.sly.seata.common.model.storage.Storage;
-import com.sly.seata.storage.service.StorageService;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Storage熔断
@@ -15,7 +13,7 @@ import com.sly.seata.storage.service.StorageService;
  * @time 2019年6月12日
  */
 @Component
-public class StorageServiceHystrixImpl implements StorageService {
+public class StorageServiceHystrixImpl  {
 
 	/**
 	 * 新增失败熔断返回
@@ -25,7 +23,6 @@ public class StorageServiceHystrixImpl implements StorageService {
 	 * @author sly
 	 * @time 2019年6月12日
 	 */
-	@Override
 	public Map<String, Object> insert(Storage storage) {
 		Map<String, Object> result = new HashMap<>(16);
 		result.put("status", 400);

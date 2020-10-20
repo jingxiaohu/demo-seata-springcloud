@@ -1,18 +1,14 @@
 package com.sly.seata.storage.service.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.sly.seata.common.model.storage.Storage;
+import io.seata.core.context.RootContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.sly.seata.common.model.storage.Storage;
-import com.sly.seata.storage.mapper.StorageMapper;
-import com.sly.seata.storage.service.StorageService;
-
-import io.seata.core.context.RootContext;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 仓储service实现
@@ -20,8 +16,8 @@ import io.seata.core.context.RootContext;
  * @author sly
  * @time 2019年6月12日
  */
-@RestController
-public class StorageServiceImpl implements StorageService {
+@Service
+public class StorageServiceImpl {
 
 
 	@Autowired
@@ -35,7 +31,6 @@ public class StorageServiceImpl implements StorageService {
 	 * @author sly
 	 * @time 2019年6月12日
 	 */
-	@Override
 	public Map<String, Object> insert(@RequestBody Storage storage) {
 		System.out.println(RootContext.getXID());
 		//int a = 10/0;

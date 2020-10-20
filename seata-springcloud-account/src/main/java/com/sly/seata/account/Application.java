@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author sly
  * @time 2019年6月12日
  */
-//@EnableTransactionManagement
+@EnableTransactionManagement
 @EnableEurekaClient
 @SpringBootApplication
 public class Application {

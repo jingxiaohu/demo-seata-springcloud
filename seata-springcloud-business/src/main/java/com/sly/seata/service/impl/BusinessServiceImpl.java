@@ -85,14 +85,23 @@ public class BusinessServiceImpl implements BusinessService {
 
 
 			Map<String, Object> insert = storageService.insert(storage);
+			if(null != insert){
+				System.out.println("-----------------------storageService insert==={"+insert+"}");
+			}
 			if((int)insert.get("status") != 200) {
 				throw new RuntimeException((String)insert.get("message"));
 			}
 			Map<String, Object> insert2 = orderService.insert(order);
+			if(null != insert2){
+				System.out.println("-----------------------orderService insert2==={"+insert2+"}");
+			}
 			if((int)insert2.get("status") != 200) {
 				throw new RuntimeException((String)insert2.get("message"));
 			}
 			Map<String, Object> insert3 = accountService.insert(account);
+			if(null != insert3){
+				System.out.println("-----------------------accountService insert3==={"+insert3+"}");
+			}
 			if((int)insert3.get("status") != 200) {
 				throw new RuntimeException((String)insert3.get("message"));
 			}

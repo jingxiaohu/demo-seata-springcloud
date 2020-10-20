@@ -1,14 +1,14 @@
 package com.sly.seata.storage.service;
 
-import java.util.Map;
-
-import org.springframework.cloud.openfeign.FeignClient;
+import com.sly.seata.common.model.storage.Storage;
+import com.sly.seata.storage.service.impl.StorageServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.sly.seata.common.model.storage.Storage;
-import com.sly.seata.storage.service.hystrix.StorageServiceHystrixImpl;
+import java.util.Map;
 
 /**
  * Storage feign客户端
@@ -16,9 +16,10 @@ import com.sly.seata.storage.service.hystrix.StorageServiceHystrixImpl;
  * @author sly
  * @time 2019年6月12日
  */
-@FeignClient(name = "seata-springcloud-storage", fallback = StorageServiceHystrixImpl.class)
-public interface StorageService {
-
+@RestController
+public class StorageService {
+@Autowired
+StorageServiceImpl storageServiceImpl;
 	/**
 	 * 新增
 	 * 
@@ -28,6 +29,9 @@ public interface StorageService {
 	 * @time 2019年6月12日
 	 */
 	@RequestMapping(value = "/storage/insert", method = RequestMethod.POST)
-	Map<String, Object> insert(@RequestBody Storage storage);
+	Map<String, Object> insert(@RequestBody Storage storage){
+		return storageServiceImpl.insert(storage);
+	}
+
 
 }
