@@ -30,10 +30,10 @@ public class SeataAutoConfig {
 	@Bean("dataSourceProxy")
 	public DataSource dataSourceProxy(DruidDataSource druidDataSource) {
 		// DataSourceProxy for AT mode
-		 return new DataSourceProxy(druidDataSource);
+//		 return new DataSourceProxy(druidDataSource);
 
 		// DataSourceProxyXA for XA mode
-//		return new DataSourceProxyXA(druidDataSource);
+		return new DataSourceProxyXA(druidDataSource);
 	}
 
 	@Bean("jdbcTemplate")
@@ -41,11 +41,10 @@ public class SeataAutoConfig {
 		return new JdbcTemplate(dataSourceProxy);
 	}
 
-	/*@Bean
+	@Bean
 	public PlatformTransactionManager txManager(DataSource dataSourceProxy) {
 		return new DataSourceTransactionManager(dataSourceProxy);
 	}
-*/
 
 	/**
 	 * 初始化seataXid过滤器

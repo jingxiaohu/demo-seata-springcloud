@@ -20,6 +20,12 @@ logging:
 feign:
   hystrix:
     enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 120000
+        readTimeout: 120000
+        loggerLevel: basic
 ribbon:
   ReadTimeout: 120000 #处理超时时间 默认5秒
   ConnectTimeout: 120000 #连接超时时间 默认2秒
